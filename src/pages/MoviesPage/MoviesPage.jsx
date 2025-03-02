@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
-import request from '../api/tmdb';
-import MovieList from '../components/MovieList/MovieList';
+import request from '../../api/tmdb';
+import MovieList from '../../components/MovieList/MovieList';
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();

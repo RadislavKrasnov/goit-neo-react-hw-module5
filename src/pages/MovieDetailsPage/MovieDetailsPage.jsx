@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink, useParams, Outlet, useNavigate, useLocation } from "react-router-dom";
-import request from "../api/tmdb";
+import request from "../../api/tmdb";
 
 const MovieDetailsPage = () => {
     const { movieId } = useParams();
