@@ -1,0 +1,14 @@
+.nav {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+}
+
+.navLink {
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.active {
+  color: #e42727;
+}

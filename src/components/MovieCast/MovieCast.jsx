@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import request from '../../api/tmdb';
+import css from './MovieCast.module.css';
 
 const MovieCast = () => {
   const { movieId } = useParams();
@@ -17,13 +18,24 @@ const MovieCast = () => {
 
   return (
     <div>
-      <ul>
-        {cast.map(actor => (
-          <li key={actor.id}>
-            {actor.profile_path && <img src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} alt={actor.name} />}
-            <p>{actor.name}</p>
-          </li>
-        ))}
+      <ul className={css.castList}>
+        {cast.length > 0 ? (
+          cast.map(actor => (
+            <li key={actor.id} className={css.castItem}>
+              {actor.profile_path && (
+                <div className={css.image}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
+                    alt={actor.name}
+                  />
+                </div>
+              )}
+              <p>{actor.name}</p>
+            </li>
+          ))
+        ) : (
+          <p>No cast available.</p>
+        )}
       </ul>
     </div>
   );

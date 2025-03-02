@@ -1,0 +1,32 @@
+.poster {
+  height: 500px;
+}
+
+.poster img {
+  display: block;
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.wrapper,
+.additionalInfo,
+.backBtn {
+  margin: 10px 0 0 10px;
+}
+
+.active {
+  color: #e42727;
+}
+
+.nav {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+}
