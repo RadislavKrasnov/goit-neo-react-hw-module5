@@ -30,3 +30,11 @@
   border-bottom: 1px solid #ccc;
   display: flex;
 }
+
+.backBtn {
+  padding: 10px;
+  background-color: #ccc;
+  display: block;
+  width: 60px;
+  color: #000;
+}

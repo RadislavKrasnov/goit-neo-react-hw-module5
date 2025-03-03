@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   NavLink,
   useParams,
   Outlet,
-  useNavigate,
   useLocation,
+  Link,
 } from 'react-router-dom';
 import request from '../../api/tmdb';
 import css from './MovieDetailsPage.module.css';
@@ -17,8 +17,8 @@ const buildLinkClass = ({ isActive }) => {
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  const navigate = useNavigate();
-  const { key } = useLocation();
+  const location = useLocation();
+  const backLinkHref = useRef(location.state ?? '/movies');
 
   useEffect(() => {
     async function fetchMovieDetails() {
@@ -33,12 +33,9 @@ const MovieDetailsPage = () => {
 
   return (
     <main>
-      <button
-        onClick={() => navigate(key !== 'default' ? -1 : '/')}
-        className={css.backBtn}
-      >
+      <Link to={backLinkHref.current} className={css.backBtn}>
         Go back
-      </button>
+      </Link>
       <div className={css.wrapper}>
         {movie.poster_path && (
           <div className={css.poster}>
